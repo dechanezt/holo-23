@@ -4,21 +4,29 @@ using UnityEngine;
 
 public class OnCollisionEnter : MonoBehaviour
 {
+    public Material portalMaterial; // assign the Portal material in the Inspector
+
     void Start()
     {
         Debug.Log("Starting detection");
 
     }
 
-    void HandleCollision(Collision collision)
+    void OnTriggerStay(Collider other)
     {
-        Debug.Log("Collision Detected");
-        // Get the point of collision
-        Vector3 collisionPoint = collision.contacts[0].point;
-        Debug.Log("Collision Point: " + collisionPoint.ToString());
+        if (other.gameObject.CompareTag("Controller"))
+        {
+            // Collision detected with VR controller, create new object at point of collision
+            Debug.Log("New cube");
 
-        // Instantiate a new cube at the point of collision
-        GameObject newCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        newCube.transform.position = collisionPoint;
+            Vector3 collisionPoint = other.ClosestPoint(transform.position);
+            GameObject newObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            newObject.transform.position = collisionPoint;
+            newObject.transform.localScale *= 0.1f; // make the cube 100 times smaller
+
+            // Assign the Portal material to the new cube object
+            Renderer renderer = newObject.GetComponent<Renderer>();
+            renderer.material = portalMaterial;
+        }
     }
 }
