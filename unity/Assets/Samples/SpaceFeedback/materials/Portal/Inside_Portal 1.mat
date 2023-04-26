@@ -15,6 +15,7 @@ Material:
   - _DISABLE_ALBEDO_MAP
   - _HOVER_LIGHT
   - _REFLECTIONS
+  - _RIM_LIGHT
   - _SPECULAR_HIGHLIGHTS
   - _USE_WORLD_SCALE
   m_InvalidKeywords:
@@ -149,8 +150,8 @@ Material:
     - _Refraction: 0
     - _RefractiveIndex: 0
     - _RenderQueueOverride: -1
-    - _RimLight: 0
-    - _RimPower: 0.25
+    - _RimLight: 1
+    - _RimPower: 6.12
     - _RoundCornerMargin: 0.01
     - _RoundCornerRadius: 0.25
     - _RoundCorners: 0
@@ -198,6 +199,6 @@ Material:
     - _ProximityLightCenterColorOverride: {r: 1, g: 0, b: 0, a: 0}
     - _ProximityLightMiddleColorOverride: {r: 0, g: 1, b: 0, a: 0.5}
     - _ProximityLightOuterColorOverride: {r: 0, g: 0, b: 1, a: 1}
-    - _RimColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _RimColor: {r: 1, g: 0, b: 0.9470248, a: 1}
     - _RoundCornersRadius: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   m_BuildTextureStacks: []
