@@ -160,8 +160,8 @@ Material:
     - _SpecularHighlights: 1
     - _SphericalHarmonics: 0
     - _SrcBlend: 1
-    - _StencilComparison: 8
-    - _StencilOperation: 2
+    - _StencilComparison: 0
+    - _StencilOperation: 0
     - _StencilReadMask: 255
     - _StencilReference: 1
     - _StencilWriteMask: 255
