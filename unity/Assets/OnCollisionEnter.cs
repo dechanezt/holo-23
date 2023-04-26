@@ -38,6 +38,8 @@ public class OnCollisionEnter : MonoBehaviour
         float scaleSpeed = 2f; // adjust this value to change the speed of scaling down
         float scaleDuration = 1f; // adjust this value to change the duration of scaling down
 
+        yield return new WaitForSeconds(10f); // wait for 5 seconds before starting the scaling down process
+
         // Gradually scale down the object over the set duration
         for (float t = 0; t < scaleDuration; t += Time.deltaTime)
         {
