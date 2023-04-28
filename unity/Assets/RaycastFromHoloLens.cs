@@ -18,15 +18,20 @@ public class RaycastFromHoloLens : MonoBehaviour
         RaycastHit hitInfo;
 
         // Lance un raycast à partir de la position et de la direction actuelle de cet objet, jusqu'à une distance maximale de maxDistance, et stocke les informations sur la collision dans hitInfo
-        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, maxDistance, Physics.DefaultRaycastLayers))
+        if (Physics.Raycast(transform.position, -transform.up, out hitInfo, maxDistance, Physics.DefaultRaycastLayers))
         {
             // Vérifie si la distance entre cet objet et l'objet touché par le raycast est inférieure à 0,1 unité (ce qui correspond à 10 cm dans le jeu)
             if (hitInfo.distance < 0.1f)
-            {
+            //if (hitInfo.distance < 1f)
+                {
                 // Affiche les informations sur la collision dans la console de débogage
                 print(hitInfo);
                 // Calcule une rotation à partir de la normale de la surface touchée par le raycast et de la direction "vers le haut" (y) pour orienter correctement l'objet de jeu instancié
                 Quaternion rotation = Quaternion.LookRotation(hitInfo.normal, Vector3.up);
+
+                // Crée un tube qui représente le raycasting
+                Debug.DrawLine(transform.position, hitInfo.point, Color.red);
+
 
                 // tentative de création d'objet
                 GameObject newObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
